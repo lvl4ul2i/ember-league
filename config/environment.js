@@ -4,6 +4,10 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'ember-league',
     environment: environment,
+    firebase: 'https://fiery-inferno-8357.firebaseio.com',
+    torii: {
+      sessionServiceName: 'session'
+    },
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -16,13 +20,23 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' https://*.firebaseio.com/ ",
+      'font-src': "'self'",
+      'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com",
+      'report-uri': "'localhost'",
+      'img-src': "'self' *",
+      'style-src': "'self' 'unsafe-inline'",
+      'frame-src': "https://*.firebaseio.com/"
     }
   };
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
+    ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }

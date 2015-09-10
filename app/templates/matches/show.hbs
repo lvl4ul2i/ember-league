@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-lg-4 col-md-4 col-sm-12 text-right">
+    <h1>{{model.team1Name}}</h1>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-12">
+    <div class="score">
+      <div class="score1">
+        <h1><span class="label label-default">{{model.team1Score}}</span></h1>
+      </div>
+      <div class="score2">
+        <h1><span class="label label-default">{{model.team2Score}}</span></h1>
+      </div>
+      {{ui-knob fgColor="red" max="90" value=model.minutes readOnly="true" }}
+      <p><strong>Min.</strong></p>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-12">
+    <h1>{{model.team2Name}}</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="container">
+    <div class="col-lg-2 col-md-2 col-sm-12">
+      {{#link-to "matches" class="btn btn-primary"}}
+        {{ui-icon icon='arrow-left'}}
+      {{/link-to}}
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-12">
+      <div class="panel panel-inverse">
+        <div class="panel-heading">
+          <div class="panel-heading-btn">
+            {{#if session.isAuthenticated}}
+              {{#link-to  "matches.admin" model class="btn btn-xs btn-icon btn-circle btn-warning"}}
+                <i class="fa fa-wrench"></i>
+              {{/link-to}}
+            {{/if}}
+          </div>
+          <h4 class="panel-title">Mensajes</h4>
+        </div>
+        <div class="panel-body fixed-panel">
+          <div class="bottom15">
+            {{liquid-outlet enableGrowth=false use="fade"}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-12">
+
+    </div>
+  </div>
+</div>

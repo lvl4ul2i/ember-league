@@ -1,3 +1,43 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<div id="header" class="header navbar navbar-default navbar-fixed-top">
+			<!-- begin container-fluid -->
+			<div class="container">
+				<!-- begin mobile sidebar expand / collapse button -->
+				<div class="navbar-header">
+					<a href="index.html" class="navbar-brand"><span class="logo"><img src="https://cdn.discourse.org/business/uploads/emberjs_public/original/2X/7/7eb3c161e6ff2d781eefc961043880fe46b5cac4.png" alt="logo" class="img-circle"/></span> Ember League</a>
+					<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<!-- end mobile sidebar expand / collapse button -->
 
-{{outlet}}
+				<!-- begin header navigation right -->
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown navbar-user">
+              {{#if session.isAuthenticated}}
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<img src="{{session.currentUser.profileImageURL}}" class="img-circle" alt="">
+							<span class="hidden-xs">{{session.currentUser.displayName}}</span> <b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu animated fadeInLeft">
+							<li class="arrow"></li>
+							<li><a href="#">Edit Profile</a></li>
+							<li class="divider"></li>
+							<li><a href="#" {{action "signOut"}}>Log Out</a></li>
+						</ul>
+            {{else}}
+            <a href="#" {{action "signIn" "twitter"}}>Sign in with Twitter</a>
+            {{/if}}
+					</li>
+				</ul>
+				<!-- end header navigation right -->
+			</div>
+			<!-- end container-fluid -->
+		</div>
+
+<div class="container" id="main-container">
+  <div class="row">
+      {{liquid-outlet enableGrowth=false use="fade"}}
+  </div>
+</div>

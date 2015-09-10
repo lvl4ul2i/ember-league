@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2 col-sm-12 col-centered">
+      <div class="panel panel-default">
+        <img src="https://pbs.twimg.com/profile_images/598935831609356288/GRGSYbCu.png" alt="tomster" class="img-responsive" />
+      </div>
+    </div>
+  </div>
+ <div class="row">
+  <div class="col-lg-5 col-md-5 col-sm-12 col-centered">
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+        <div class="panel-heading-btn">
+          {{#if session.isAuthenticated}}
+            {{#link-to  "matches.new"  class="btn btn-xs btn-icon btn-circle btn-warning"}}
+              <i class="fa fa-wrench"></i>
+            {{/link-to}}
+          {{/if}}
+        </div>
+        <h4 class="panel-title">Total matches: {{model.length}}</h4>
+      </div>
+      <div class="panel-body">
+        {{#each model as |match|}}
+        {{#link-to "messages" match}}
+         <div class="match alert-warning team-index">
+           <div class="inline-block">
+             <p> <strong>{{match.team1Name}}</strong></p>
+             <p class="vs">{{match.score}}</p>
+             <p class="pull-right"> <strong>{{match.team2Name}}</strong></p>
+           </div>
+         </div>
+         {{/link-to}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
