@@ -56,7 +56,9 @@
           <div class="col-sm-12">
             <form class="form-horizontal">
               <div class="form-group">
-                <label for="message" class="col-sm-2 control-label">Message:</label>
+                <label for="message" class="col-sm-2 control-label">
+                  <small>Messages ({{model.messages.length}}):</small>
+                </label>
                 <div class="col-sm-10">
                   <div class="input-group">
                     {{input type="text" enter='saveMessage' value=message_text class="form-control" id="message"}}
