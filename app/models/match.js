@@ -2,7 +2,7 @@ import DS from 'ember-data';
 import Ember from 'ember';
 
 export default DS.Model.extend({
-  messages: DS.hasMany('message', { async: false, embedded: true }),
+  messages: DS.hasMany('message', {async: false}),
   team1Name: DS.attr('string'),
   team2Name: DS.attr('string'),
   team1Score: DS.attr('number',{ defaultValue: 0 }),
