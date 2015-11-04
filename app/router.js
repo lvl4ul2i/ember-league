@@ -12,9 +12,7 @@ Router.map(function() {
     this.route('show', {
       path: ':match_id'
     }, function () {
-      this.route('messages',{resetNamespace: true}, function () {
-
-      });
+      this.route('messages',{ resetNamespace: true }, function () {});
     });
 
     this.route('admin', {

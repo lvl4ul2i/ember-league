@@ -27,21 +27,17 @@ import MatchesBaseController from './base';
       },
 
       saveMessage(){
-        // Get the parent match
-        var model = this.get('model');
-        var self = this;
-        var message_text=this.get("message_text");
-        var newMessage = this.store.createRecord('message', {
-          message: model.get('minutes') + ' min. - ' + message_text,
-          timestamp: new Date().getTime()
-        });
+        var model = this.get('model'),
+            newMessage = this.store.createRecord('message', {
+              message: model.get('minutes') + ' min. - ' + this.get('message_text'),
+              timestamp: new Date().getTime()
+            });
 
-        model.get('messages.[]').pushObject(newMessage);
-        // Save the message, then save the match
-        newMessage.save().then(function() {
-          self.set('message_text', '');
-          return model.save();
-        });
+        var messages = model.get('messages');
+
+        this.set('message_text', '');
+        messages.addObject(newMessage);
+        model.save();
       },
 
       clearMessages() {
