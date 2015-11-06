@@ -37,7 +37,13 @@ import MatchesBaseController from './base';
 
         this.set('message_text', '');
         messages.addObject(newMessage);
-        model.save();
+
+        // When saving async relationships in `emberfire`, both sides of the
+        // relationship should be saved. See:
+        // https://www.firebase.com/docs/web/libraries/ember/guide.html#section-relationships
+        newMessage.save().then(function() {
+          return model.save();
+        });
       },
 
       clearMessages() {
