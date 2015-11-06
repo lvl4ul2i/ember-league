@@ -28,12 +28,12 @@ export default MatchesBaseController.extend({
     saveMessage() {
       var model = this.get('model'),
         newMessage = this.store.createRecord('message', {
-          message: `${model.get('minutes')} min. - ${this.get('message_text')}`,
+          message: `${model.get('minutes')} min. - ${this.get('messageText')}`,
           timestamp: new Date().getTime()
         });
 
       var messages = model.get('messages');
-      this.set('message_text', '');
+      this.set('messageText', '');
       messages.addObject(newMessage);
 
       // When saving async relationships in `emberfire`, both sides of the
