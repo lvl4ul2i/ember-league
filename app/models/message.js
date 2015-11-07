@@ -1,7 +1,9 @@
 import DS from 'ember-data';
 
+const { attr, belongsTo } = DS;
+
 export default DS.Model.extend({
-  match: DS.belongsTo('match'),
-  message: DS.attr('string'),
-  timestamp: DS.attr('number')
+  match: belongsTo('match'),
+  message: attr('string'),
+  timestamp: attr('number')
 });
