@@ -14,7 +14,7 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{message-stream}}`);
 
-  assert.equal(this.$().text(), '');
+  assert.equal(this.$().text().trim(), '');
 
   // Template block usage:
   this.render(hbs`
@@ -23,5 +23,5 @@ test('it renders', function(assert) {
     {{/message-stream}}
   `);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$().text().trim(), '');
 });
