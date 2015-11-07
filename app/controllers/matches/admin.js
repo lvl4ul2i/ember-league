@@ -9,15 +9,13 @@ export default MatchesBaseController.extend({
 
     valueUp(field) {
       var model = this.get('content');
-      var value = model.get(field) + 1;
-      model.set(field, value);
+      model.incrementProperty(field);
       model.save();
     },
 
     valueDown(field) {
       var model = this.get('content');
-      var value = model.get(field) - 1;
-      model.set(field, value);
+      model.decrementProperty(field);
       model.save();
     },
 

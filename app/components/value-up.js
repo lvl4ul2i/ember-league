@@ -8,8 +8,7 @@ export default Ember.Component.extend({
   actions: {
     valueUp(field) {
       var model = this.get('model');
-      var value = model.get(field) + 1;
-      model.set(field, value);
+      model.incrementProperty(field);
       model.save();
     }
   }
